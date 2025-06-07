@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Onboarding & Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Onboarding Container -->
+  <div class="container" id="onboarding">
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- Step 1: Personal Info -->
+    <div class="step" id="step1">
+      <h2>Personal Information</h2>
+      <form id="personalForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="button-group">
+          <button type="button" class="next-btn" onclick="nextStep(1)">Next</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Step 2: Business Info -->
+    <div class="step" id="step2" style="display: none;">
+      <h2>Business Information</h2>
+      <form id="businessForm">
+        <div class="form-group">
+          <label for="company">Company Name</label>
+          <input type="text" id="company" required />
+        </div>
+        <div class="form-group">
+          <label for="industry">Industry</label>
+          <select id="industry" required>
+            <option value="">Select Industry</option>
+            <option value="tech">Technology</option>
+            <option value="finance">Finance</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="retail">Retail</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="size">Company Size</label>
+          <select id="size" required>
+            <option value="">Select Size</option>
+            <option value="1-10">1–10</option>
+            <option value="11-50">11–50</option>
+            <option value="51-200">51–200</option>
+            <option value="201+">201+</option>
+          </select>
+        </div>
+        <div class="button-group">
+          <button type="button" class="back-btn" onclick="prevStep(2)">Back</button>
+          <button type="button" class="next-btn" onclick="nextStep(2)">Next</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Step 3: Preferences -->
+    <div class="step" id="step3" style="display: none;">
+      <h2>Preferences</h2>
+      <form id="preferencesForm">
+        <div class="form-group">
+          <label for="theme">Theme</label>
+          <select id="theme" required>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="layout">Dashboard Layout</label>
+          <select id="layout" required>
+            <option value="grid">Grid</option>
+            <option value="list">List</option>
+          </select>
+        </div>
+        <div class="button-group">
+          <button type="button" class="back-btn" onclick="prevStep(3)">Back</button>
+          <button type="button" class="submit-btn" onclick="submitOnboarding()">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dashboard Container -->
+  <div class="container" id="dashboard" style="display: none;">
+    <header>
+      <h1>Welcome, <span id="userName">User</span>!</h1>
+      <button onclick="logout()" class="logout-btn">Logout</button>
+    </header>
+
+    <div class="dashboard-grid">
+      <div class="card"><h3>Team Members</h3><p class="count">12</p></div>
+      <div class="card"><h3>Active Projects</h3><p class="count">5</p></div>
+      <div class="card"><h3>Notifications</h3><p class="count">3</p></div>
+    </div>
+
+    <div class="chart-container" style="margin-top: 2rem;">
+      <h3>Weekly Progress</h3>
+      <canvas id="progressChart" width="400" height="200"></canvas>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
