@@ -1,5 +1,5 @@
 # Internshipproject
-This project is a frontend React application featuring a multi-step onboarding wizard and a dashboard.
+This project is a frontend application featuring a multi-step onboarding wizard and a dashboard.
 
 Collects user information in 3 steps (Personal Info, Business Info, Preferences).
 
